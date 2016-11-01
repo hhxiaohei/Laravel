@@ -19,14 +19,14 @@ class EmailForLoginMiddleware
         $rs = $next($request);
         if($request->user()){
             $mail = new Message;
-            $mail->setFrom('点点贷官方网站 <hhzhanghongyi@163.com>')
+            $mail->setFrom('点点贷官方网站 <@163.com>')
                 ->addTo($request->user()->email)
                 ->setSubject('欢迎登陆点点贷')
                 ->setBody("用户名:".$request->user()->name);
             $mailer = new SmtpMailer([
                 'host' => 'smtp.163.com',
-                'username' => 'hhzhanghongyi',
-                'password' => 'qq350000225621'
+                'username' => '',
+                'password' => ''
             ]);
             $mailer->send($mail);
         }
